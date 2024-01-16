@@ -30,7 +30,7 @@ export default function Map() {
   return (
     <div>
     <ComposableMap>
-     <ZoomableGroup center={[0, 0]} zoom={1.5}>
+     <ZoomableGroup center={[10, 10]} zoom={1.5}>
       <Geographies 
          geography="/features.json">
         {({ geographies }) =>
