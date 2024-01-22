@@ -20,15 +20,10 @@ mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!")
 })
 
-// middlewares
+// middlewares -> able to reach, Request, response, next
 app.use(express.json())
+
 app.use("/api/travel", travelRoute);
-app.use("/", (req, res) =>{
-  console.log('its default')
-})
-app.use((req,res,next) => {
-  console.log("hi, im")
-})
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;

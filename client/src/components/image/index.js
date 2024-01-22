@@ -64,27 +64,29 @@ background-color: rgba(0,0,0,0.5)
 
 `
 
-const ImageBox = ({setOpen}) => {
+const ImageBox = ({setOpen, data}) => {
 	const [openPopup, setOpenPopup] = useState(false)
 	const [currentImg, setCurrentImg] = useState("")
 
+	console.log(data, 'data contents')
+
   return (
     <>
-			<Shadow></Shadow>
+		<Shadow></Shadow>
         <Container>
 					<Close onClick={() => {setOpen(false)}}>close</Close>
             <Images>
-							{imgList.map((img) => {
+							{data && data.contents.map((img) => {
 								return(
-								<Image key={img.id} 
+								<Image key={img.city} 
 								style={{
-									backgroundImage :`url(${img.img})`,
+								  backgroundImage :`url(${img.image})`,
 								  backgroundRepeat: 'no-repeat',
 								  backgroundSize: 'cover',
 								  }} 
 								onClick={() => {
 									setOpenPopup(true)
-									setCurrentImg(img.img)
+									setCurrentImg(img.images)
 								}} />
 								)})}
 						</Images>

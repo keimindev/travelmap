@@ -9,6 +9,8 @@ const travelSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    markerOffset:{ type: Number},
+    coordinates: { type: Array, required: true},
     contents:{
         type: [{ 
             id:{
@@ -30,4 +32,4 @@ const travelSchema = new mongoose.Schema({
 )
 
 
-export default mongoose.model("Travel", travelSchema);
+export const Travel = mongoose.models?.Travel || mongoose.model("Travel", travelSchema);
